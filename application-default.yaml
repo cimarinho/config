@@ -2,6 +2,10 @@ saga:
   flow:
     next-flow: order-create-topic
     end-flow: flow-end-topic
+    sequence: 
+      - order
+      - payment
+      - inventory
   order:
     create: order-create-topic
     next-flow: payment-create-topic
