@@ -1,10 +1,16 @@
 saga:
+  flow:
+    next-flow: order-create-topic
+    end-flow: flow-end-topic
   order:
     create: order-create-topic
+    next-flow: payment-create-topic
     compensate: order-compensate-topic
   payment:
     create: payment-create-topic
+    next-flow: inventory-create-topic
     compensate: payment-compensate-topic
   inventory:
     create: inventory-create-topic
+    next-flow: flow-end-topic
     compensate: inventory-compensate-topic
