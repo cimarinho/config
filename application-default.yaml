@@ -1,0 +1,10 @@
+saga:
+  order:
+    create: order-create-topic
+    compensate: order-compensate-topic
+  payment:
+    create: payment-create-topic
+    compensate: payment-compensate-topic
+  inventory:
+    create: inventory-create-topic
+    compensate: inventory-compensate-topic
