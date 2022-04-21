@@ -2,7 +2,7 @@ saga:
   flow:
     next-flow: order-create-topic
     end-flow: flow-end-topic
-    sequence: order-create-topic,payment-create-topic,inventory-create-topic,flow-process-topic
+    sequence: payment-create-topic,inventory-create-topic,flow-process-topic
   order:
     create: order-create-topic
     next-flow: payment-create-topic
