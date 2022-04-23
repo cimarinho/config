@@ -11,13 +11,13 @@ saga:
     next-flow: payment-create-topic
     compensate: 
     simulate-error: true
-    finalize-error-flow: flow-end-topic
+    finalize-flow: flow-end-topic
   payment:
     create: payment-create-topic
     next-flow: flow-end-topic
     compensate: order-compensate-topic
     simulate-error: false
-    finalize-error-flow: 
+    finalize-flow: 
   # inventory:
   #   create: inventory-create-topic
   #   next-flow: flow-end-topic
