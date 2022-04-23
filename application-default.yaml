@@ -9,7 +9,7 @@ saga:
   order:
     create: order-create-topic
     next-flow: payment-create-topic
-    compensate: 
+    compensate: order-compensate-topic
     simulate-error: false
     finalize-flow: flow-end-topic
   payment:
