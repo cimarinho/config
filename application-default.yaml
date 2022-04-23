@@ -8,15 +8,15 @@ saga:
 #    Todo fluxo deve chamar compensate carro ocorra erro.
   order:
     create: order-create-topic
-    next-flow: payment-create2-topic
-    compensate: payment-create-topic
-    simulate-error: true
+    next-flow: payment-create-topic
+    compensate: 
+    simulate-error: false
     finalize-flow: flow-end-topic
   payment:
     create: payment-create-topic
     next-flow: flow-end-topic
     compensate: order-compensate-topic
-    simulate-error: false
+    simulate-error: true
     finalize-flow: 
   # inventory:
   #   create: inventory-create-topic
