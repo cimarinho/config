@@ -3,15 +3,25 @@ saga:
     next-flow: order-create-topic
     end-flow: flow-end-topic
     sequence: order-create-topic,payment-create-topic,inventory-create-topic
+#    Em caso de erro, so pode ser executado no fim do fluxo ou qdo nao tiver topic compensate
+#    Todo fluxo deve chamar compensate carro ocorra erro.
+#    Todo fluxo deve chamar compensate carro ocorra erro.
   order:
     create: order-create-topic
     next-flow: payment-create-topic
-    compensate: order-compensate-topic
+    compensate: 
+    simulate-error: true
+    finalize-error-flow: flow-end-topic
   payment:
     create: payment-create-topic
-    next-flow: inventory-create-topic
-    compensate: payment-compensate-topic
-  inventory:
-    create: inventory-create-topic
     next-flow: flow-end-topic
-    compensate: inventory-compensate-topic
+    compensate: order-compensate-topic
+    simulate-error: false
+    finalize-error-flow: 
+  # inventory:
+  #   create: inventory-create-topic
+  #   next-flow: flow-end-topic
+  #   compensate: payment-compensate-topic
+  #   simulate-error: false
+  #   finalize-flow: flow-end-topic
+    
